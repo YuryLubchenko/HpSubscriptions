@@ -1,0 +1,27 @@
+﻿@model IEnumerable<HpSubscriptions.Entities.SubscriptionRecord>
+
+@{
+    ViewBag.Title = "Subscriptions";
+}
+
+<table class="table">
+    <thead>
+    <tr>
+        <th>Id</th>
+        <th>Created</th>
+        <th>Type</th>
+        <th>Content</th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var record in Model)
+    {
+        <tr>
+            <td>@record.Id</td>
+            <td>@record.Created.ToString("G")</td>
+            <td>@record.Type</td>
+            <td>@Html.ActionLink("Show content", MVC.Subscriptions.Content(record.Id), new {@class="btn btn-default"} )</td>
+        </tr>
+    }
+    </tbody>
+</table>
