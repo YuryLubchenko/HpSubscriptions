@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Web.Mvc;
 using HpSubscriptions.Database;
 using HpSubscriptions.Entities;
+using HpSubscriptions.Models;
 
 namespace HpSubscriptions.Controllers.Mvc
 {
@@ -15,11 +16,17 @@ namespace HpSubscriptions.Controllers.Mvc
         [HttpGet]
         public virtual async Task<ActionResult> Index()
         {
-            IEnumerable<SubscriptionRecord> records;
+            IEnumerable<SubscriptionRecordViewModel> records;
 
             using (var context = new DatabaseContext())
             {
-                records = await context.Records.OrderByDescending(x => x.Created).ToListAsync();
+                records =
+                    await context.Records.OrderByDescending(x => x.Created).Select(x => new SubscriptionRecordViewModel
+                    {
+                        Id = x.Id,
+                        Type = x.Type,
+                        Created = x.Created
+                    }).ToListAsync();
             }
 
             return View(records);
