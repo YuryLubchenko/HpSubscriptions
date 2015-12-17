@@ -9,7 +9,7 @@ namespace HpSubscriptions.Database
 
         public DatabaseContext():base("HpSubscriptionsConnection")
         {
-
+            
         }
     }
 }

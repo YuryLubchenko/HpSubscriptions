@@ -1,8 +1,9 @@
 ﻿using System.Data.Entity;
+using HpSubscriptions.Migrations;
 
 namespace HpSubscriptions.Database
 {
-    public class DatabaseInitializer: DropCreateDatabaseIfModelChanges<DatabaseContext>
+    public class DatabaseInitializer: MigrateDatabaseToLatestVersion<DatabaseContext, MigrationConfiguration>
     {
          
     }

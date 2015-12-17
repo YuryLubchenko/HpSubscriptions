@@ -189,6 +189,11 @@
     <Compile Include="HomeController.generated.cs">
       <DependentUpon>T4MVC.tt</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201512171352490_Add-Content-Type.cs" />
+    <Compile Include="Migrations\201512171352490_Add-Content-Type.Designer.cs">
+      <DependentUpon>201512171352490_Add-Content-Type.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\MigrationConfiguration.cs" />
     <Compile Include="Models\SubscriptionRecordViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SharedController.generated.cs">
@@ -280,6 +285,11 @@
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
     <Content Include="Scripts\jquery-2.1.4.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201512171352490_Add-Content-Type.resx">
+      <DependentUpon>201512171352490_Add-Content-Type.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

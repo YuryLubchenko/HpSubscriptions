@@ -13,7 +13,9 @@ namespace HpSubscriptions.Entities
         
         public string Type { get; set; }
         
-        public string Content { get; set; } 
+        public string Content { get; set; }
+
+        public string ContentType { get; set; }
 
         public DateTime Created { get; set; }
     }

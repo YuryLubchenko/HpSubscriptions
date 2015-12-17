@@ -46,9 +46,9 @@ namespace HpSubscriptions.Controllers.Mvc
                 return HttpNotFound();
 
             Response.AddHeader("Content-Disposition",
-                "inline; filename=content" + id + ".xml");
+                "inline; filename=content" + id + ".txt");
 
-            return new FileContentResult(Encoding.UTF8.GetBytes(record.Content), "text/xml");
+            return new FileContentResult(Encoding.UTF8.GetBytes(record.Content), record.ContentType);
         }
     }
 }

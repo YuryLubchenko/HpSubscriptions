@@ -18,8 +18,8 @@ namespace HpSubscriptions.Controllers.Api
                 context.Records.Add(new SubscriptionRecord
                 {
                     Type = subscriptionType,
-                    Content = content
-
+                    Content = content,
+                    ContentType = Request.Content.Headers.ContentType.MediaType
                 });
 
                 await context.SaveChangesAsync();
