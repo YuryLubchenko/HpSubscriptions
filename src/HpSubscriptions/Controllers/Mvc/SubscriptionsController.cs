@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Web.Mvc;
+using System.Web.UI.WebControls;
 using HpSubscriptions.Database;
 using HpSubscriptions.Entities;
 using HpSubscriptions.Models;
@@ -45,8 +46,26 @@ namespace HpSubscriptions.Controllers.Mvc
             if (record == null)
                 return HttpNotFound();
 
+            string extension = "txt";
+
+            if (!string.IsNullOrEmpty(record.ContentType))
+            {
+                if (record.ContentType.Contains("xml"))
+                {
+                    extension = "xml";
+                }
+                else if (record.ContentType.Contains("json"))
+                {
+                    extension = "json";
+                }
+                else
+                {
+                    extension = "txt";
+                }
+            }
+
             Response.AddHeader("Content-Disposition",
-                "inline; filename=content" + id + ".txt");
+                $"inline; filename=content_{id}.{extension}");
 
             return new FileContentResult(Encoding.UTF8.GetBytes(record.Content), record.ContentType);
         }
