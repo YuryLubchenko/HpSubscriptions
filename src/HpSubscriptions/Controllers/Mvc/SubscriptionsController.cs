@@ -46,6 +46,22 @@ namespace HpSubscriptions.Controllers.Mvc
             if (record == null)
                 return HttpNotFound();
 
+            return View(record);
+        }
+
+        [HttpGet]
+        public virtual async Task<ActionResult> Download(long id)
+        {
+            SubscriptionRecord record;
+
+            using (var context = new DatabaseContext())
+            {
+                record = await context.Records.FirstOrDefaultAsync(x => x.Id == id);
+            }
+
+            if (record == null)
+                return HttpNotFound();
+
             string extension = "txt";
 
             if (!string.IsNullOrEmpty(record.ContentType))

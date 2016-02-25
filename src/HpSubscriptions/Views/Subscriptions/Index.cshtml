@@ -20,7 +20,10 @@
             <td>@record.Id</td>
             <td>@record.Created.ToString("G")</td>
             <td>@record.Type</td>
-            <td>@Html.ActionLink("Show content", MVC.Subscriptions.Content(record.Id), new {@class="btn btn-default"} )</td>
+            <td>
+                @Html.ActionLink("Show content", MVC.Subscriptions.Content(record.Id), new {@class = "btn btn-default"})
+                @Html.ActionLink(" ", MVC.Subscriptions.Download(record.Id), new {@class = "btn btn-default glyphicon glyphicon-download", title="Download"})
+            </td>
         </tr>
     }
     </tbody>

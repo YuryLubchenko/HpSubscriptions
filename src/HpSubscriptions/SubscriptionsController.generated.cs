@@ -66,6 +66,13 @@ namespace HpSubscriptions.Controllers.Mvc
             var callInfo = new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.Content);
             return System.Threading.Tasks.Task.FromResult(callInfo as ActionResult);
         }
+        [NonAction]
+        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+        public virtual System.Threading.Tasks.Task<System.Web.Mvc.ActionResult> Download()
+        {
+            var callInfo = new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.Download);
+            return System.Threading.Tasks.Task.FromResult(callInfo as ActionResult);
+        }
 
         [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
         public SubscriptionsController Actions { get { return MVC.Subscriptions; } }
@@ -84,6 +91,7 @@ namespace HpSubscriptions.Controllers.Mvc
         {
             public readonly string Index = "Index";
             public readonly string Content = "Content";
+            public readonly string Download = "Download";
         }
 
         [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
@@ -91,6 +99,7 @@ namespace HpSubscriptions.Controllers.Mvc
         {
             public const string Index = "Index";
             public const string Content = "Content";
+            public const string Download = "Download";
         }
 
 
@@ -99,6 +108,14 @@ namespace HpSubscriptions.Controllers.Mvc
         public ActionParamsClass_Content ContentParams { get { return s_params_Content; } }
         [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
         public class ActionParamsClass_Content
+        {
+            public readonly string id = "id";
+        }
+        static readonly ActionParamsClass_Download s_params_Download = new ActionParamsClass_Download();
+        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+        public ActionParamsClass_Download DownloadParams { get { return s_params_Download; } }
+        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+        public class ActionParamsClass_Download
         {
             public readonly string id = "id";
         }
@@ -112,8 +129,10 @@ namespace HpSubscriptions.Controllers.Mvc
             public _ViewNamesClass ViewNames { get { return s_ViewNames; } }
             public class _ViewNamesClass
             {
+                public readonly string Content = "Content";
                 public readonly string Index = "Index";
             }
+            public readonly string Content = "~/Views/Subscriptions/Content.cshtml";
             public readonly string Index = "~/Views/Subscriptions/Index.cshtml";
         }
     }
@@ -143,6 +162,18 @@ namespace HpSubscriptions.Controllers.Mvc
             var callInfo = new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.Content);
             ModelUnbinderHelpers.AddRouteValues(callInfo.RouteValueDictionary, "id", id);
             ContentOverride(callInfo, id);
+            return System.Threading.Tasks.Task.FromResult(callInfo as ActionResult);
+        }
+
+        [NonAction]
+        partial void DownloadOverride(T4MVC_System_Web_Mvc_ActionResult callInfo, long id);
+
+        [NonAction]
+        public override System.Threading.Tasks.Task<System.Web.Mvc.ActionResult> Download(long id)
+        {
+            var callInfo = new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.Download);
+            ModelUnbinderHelpers.AddRouteValues(callInfo.RouteValueDictionary, "id", id);
+            DownloadOverride(callInfo, id);
             return System.Threading.Tasks.Task.FromResult(callInfo as ActionResult);
         }
 

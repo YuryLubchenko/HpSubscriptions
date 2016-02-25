@@ -1,0 +1,15 @@
+﻿@model HpSubscriptions.Entities.SubscriptionRecord
+
+@{
+    ViewBag.Title = "Content";
+    Layout = MVC.Shared.Views._Layout;
+}
+
+<div class="panel-body">
+    <pre class="prettyprint">@Model.Content</pre>
+</div>
+
+@section scripts
+{
+    @Scripts.Render("~/bundles/prettify");
+}
