@@ -273,7 +273,7 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <None Include="T4MVC.tt.hooks.t4" />
     <Content Include="Views\Subscriptions\Index.cshtml" />
-    <None Include="Views\Subscriptions\Content.cshtml" />
+    <Content Include="Views\Subscriptions\Content.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
